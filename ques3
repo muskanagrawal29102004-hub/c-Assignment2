@@ -1,0 +1,53 @@
+    using System;
+
+    namespace Lab1_AccessModifiers
+    {
+        class Student2
+        {
+            public string Name = "Muskan Agrawal";
+            private int Age = 22;
+            protected string Department = "MCA";
+            internal double CGPA = 8.7;
+            protected internal string College = "GLA University";
+            private protected string Address = "Firozabad";
+        }
+
+        class GraduateStudent : Student1
+        {
+            public void ShowData()
+            {
+                Console.WriteLine("Access through Inheritance");
+                Console.WriteLine("--------------------------");
+
+                Console.WriteLine(Name);        // Accessible
+                // Console.WriteLine(Age);      // Error
+                Console.WriteLine(Department);  // Accessible
+                Console.WriteLine(CGPA);        // Accessible
+                Console.WriteLine(College);     // Accessible
+                Console.WriteLine(Address);     // Accessible
+
+                Console.WriteLine("\nAccess through Student Object");
+                Console.WriteLine("-----------------------------");
+
+                Student s = new Student();
+
+                Console.WriteLine(s.Name);      // Accessible
+                // Console.WriteLine(s.Age);       // Error
+                // Console.WriteLine(s.Department); // Error
+                Console.WriteLine(s.CGPA);      // Accessible
+                Console.WriteLine(s.College);   // Accessible
+                // Console.WriteLine(s.Address);   // Error
+            }
+        }
+
+        class Ques3
+        {
+            static void Main(string[] args)
+            {
+                GraduateStudent gs = new GraduateStudent();
+                gs.ShowData();
+
+                Console.ReadKey();
+            }
+        }
+    }
