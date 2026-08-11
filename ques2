@@ -1,0 +1,41 @@
+using System;
+
+namespace Lab1_AccessModifiers
+{
+    class Student1
+    {
+        public string Name = "Muskan Agrawal";
+        private int Age = 22;
+        protected string Department = "MCA";
+        internal double CGPA = 8.7;
+        protected internal string College = "GLA University";
+        private protected string Address = "Firozabad";
+
+        public void Display()
+        {
+            Console.WriteLine("Name: " + Name);
+            Console.WriteLine("Age: " + Age);
+            Console.WriteLine("Department: " + Department);
+            Console.WriteLine("CGPA: " + CGPA);
+            Console.WriteLine("College: " + College);
+            Console.WriteLine("Address: " + Address);
+        }
+    }
+
+    class TestStudent
+    {
+        static void Main3(string[] args)
+        {
+            Student1 s = new Student1();
+
+            Console.WriteLine(s.Name);      // Accessible
+            // Console.WriteLine(s.Age);    // Error
+            // Console.WriteLine(s.Department); // Error
+            Console.WriteLine(s.CGPA);      // Accessible
+            Console.WriteLine(s.College);   // Accessible
+            // Console.WriteLine(s.Address); // Error
+
+            Console.ReadKey();
+        }
+    }
+}
